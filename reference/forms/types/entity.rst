@@ -196,14 +196,17 @@ Overridden Options
 
 .. include:: /reference/forms/types/options/choice_name.rst.inc
 
-In the ``EntityType``, this defaults to the ``id`` of the entity, if it can
+In the ``EntityType``, this defaults to the id of the entity, if it can
 be read. Otherwise, it falls back to using auto-incrementing integers.
 
 .. include:: /reference/forms/types/options/choice_value.rst.inc
 
-In the ``EntityType``, this is overridden to use the ``id`` by default. When the
-``id`` is used, Doctrine only queries for the objects for the ids that were actually
-submitted.
+.. note::
+
+    In the ``EntityType``, this is overridden to use the id by default. When the
+    id is used, Doctrine only queries for the objects for the ids that were actually
+    submitted. If you override this, you'll lose this optimization: the field will
+    query for *all* entities, not just the one submitted.
 
 choices
 ~~~~~~~
